@@ -20,6 +20,8 @@ const Home = ({ products, bannerData }) => {
   );
 };
 
+// Next.js is using this function to pre-render pages on each request using the data passed inside
+// data is being fetched from sanity client
 export const getServerSideProps = async () => {
   const query = '*[_type == "product"]';
   const products = await client.fetch(query);
