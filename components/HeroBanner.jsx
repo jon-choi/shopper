@@ -3,23 +3,23 @@ import Link from 'next/link';
 
 import { urlFor } from '../lib/client';
 
-const HeroBanner = ({ heroBanner }) => {
+const HeroBanner = ({ heroBanner: { smallText, midText, largeText1, image, product, buttonText, desc } }) => {
   return (
     <div className="hero-banner-container">
       <div>
-        <p className="beats-solo">{heroBanner.smallText}</p>
-        <h3>{heroBanner.midText}</h3>
-        <h2>{heroBanner.largeText1}</h2>
-        <img src={urlFor(heroBanner.image)} alt="headphones"
+        <p className="beats-solo">{smallText}</p>
+        <h3>{midText}</h3>
+        <h2>{largeText1}</h2>
+        <img src={urlFor(image)} alt="headphones"
         className="hero-banner-image" />
 
         <div>
-          <Link href={`/product/${heroBanner.product}`}>
-            <button type="button">{heroBanner.buttonText}</button>
+          <Link href={`/product/${product}`}>
+            <button type="button">{buttonText}</button>
           </Link>
           <div className="desc">
             <h5>Get in on the action!</h5>
-            <p>{heroBanner.desc}</p>
+            <p>{desc}</p>
           </div>
         </div>
       </div>
@@ -27,4 +27,4 @@ const HeroBanner = ({ heroBanner }) => {
   )
 }
 
-export default HeroBanner
+export default HeroBanner;
