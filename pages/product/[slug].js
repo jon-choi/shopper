@@ -16,6 +16,8 @@ const ProductDetails = () => {
   );
 };
 
+// the data inside this function is ready to go ahead of user's request
+// stored data will be populated instantly when user navigates to certain page
 export const getStaticProps = async ({ params: { slug } }) => {
   const query = `*[_type == "product" && slug.current == '${slug}'][0]`;
   const productsQuery = '*[_type == "product"]';
