@@ -18,14 +18,14 @@ export const StateContext = ({ children }) => {
       (item) => item._id === product._id
     );
 
-    if (checkProductInCart) {
-      setTotalPrice(
-        (prevTotalPrice) => prevTotalPrice + product.price * quantity
-      );
-      setTotalQuantities(
-        (prevTotalQuantities) => prevTotalQuantities + quantity
-      );
+    // state for updating price and quantities of items in cart
+    setTotalPrice(
+      (prevTotalPrice) => prevTotalPrice + product.price * quantity
+    );
+    setTotalQuantities((prevTotalQuantities) => prevTotalQuantities + quantity);
 
+    // check to see if an item is already added to the cart
+    if (checkProductInCart) {
       // map over current cart items
       // get each individual item
       // increase quantity of product
@@ -38,8 +38,14 @@ export const StateContext = ({ children }) => {
       });
 
       setCartItems(updatedCartItems);
-      toast.success(`${qty} ${product.name} added to cart.`);
+
+      // check to see if item is not already in the cart
+    } else {
+      product.quantity = quantity;
+
+      setCartItems([...cartItems, { ...product }]);
     }
+    toast.success(`${qty} ${product.name} added to cart.`);
   };
 
   // increases qty of items
