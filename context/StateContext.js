@@ -68,9 +68,11 @@ export const StateContext = ({ children }) => {
   // accept id and value
   const toggleCartItemQuantity = (id, value) => {
     foundProduct = cartItems.find((item) => item._id === id);
+    // gives us an index of the found item in the cartItems array
     index = cartItems.findIndex((product) => product._id === id);
 
     if (value === "inc") {
+      // updating cartItems with current cart items, adding 1 new element to it, spreading props of that product, and increasing the quantity by 1
       setCartItems(
         cartItems.map((item) =>
           item._id === id
@@ -81,6 +83,7 @@ export const StateContext = ({ children }) => {
       setTotalPrice((prevTotalPrice) => prevTotalPrice + foundProduct.price);
       setTotalQuantities((prevTotalQuantities) => prevTotalQuantities + 1);
     } else if (value === "dec") {
+      // update cartItems by removing 1 item at a time, but not go lower than a quantity of 1
       if (foundProduct.quantity > 1) {
         setCartItems(
           cartItems.map((item) =>
