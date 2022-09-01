@@ -1,4 +1,6 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+A full-stack e-commerce website built with Next.js and Sanity, with payment integration from Stripe.
+
+This project is deployed on Vercel ---> [Shopper](https://shopper-nine.vercel.app/);
 
 ## Getting Started
 
