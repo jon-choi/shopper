@@ -1,4 +1,4 @@
-A full-stack e-commerce website built with Next.js and Sanity, with payment integration from Stripe.
+A full-stack e-commerce website built with Next.js and Sanity, with payment integration from Stripe. Sanity handles all the data and allows for dynamic management of the entire application, with React/Next fetching data from the content platform.
 
 This project is deployed on Vercel ---> [Shopper](https://shopper-nine.vercel.app/);
 
